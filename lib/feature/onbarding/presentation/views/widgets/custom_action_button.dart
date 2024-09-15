@@ -26,7 +26,7 @@ class CustomActionButton extends StatelessWidget {
         onPressed: () async {
           if (isLast) {
             await CasheHelper.savedDate(key: 'onboarding', value: true);
-            GoRouter.of(context).go(Routes.kHomeView);
+            GoRouter.of(context).go(Routes.kBottomBar);
           } else {
             pageController.nextPage(
                 duration: const Duration(milliseconds: 500),

@@ -1,4 +1,4 @@
 class Routes {
   static const kOnboarding = '/';
-  static const kHomeView = '/homeView';
+  static const kBottomBar = '/bottomBar';
 }
