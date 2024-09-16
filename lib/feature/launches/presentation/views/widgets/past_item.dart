@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:spacex/core/helpers/consts.dart';
+import 'package:spacex/feature/launches/data/models/launches_model.dart';
 
 class PastItem extends StatelessWidget {
-  const PastItem({super.key});
-
+  const PastItem({super.key, required this.launchesModel});
+  final LaunchesModel launchesModel;
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
@@ -11,23 +13,19 @@ class PastItem extends StatelessWidget {
       tilePadding: const EdgeInsets.symmetric(vertical: 8),
       childrenPadding: const EdgeInsets.all(8),
       backgroundColor: kPrimaryColor,
-      leading: const Image(
-        image: AssetImage('assets/images/test.png'),
+      leading: Image(
+        image: NetworkImage(launchesModel.image ??
+            'https://images2.imgbox.com/a9/9a/NXVkTZCE_o.png'),
       ),
-      title: const Text(
-        'Starlink Group 9-17',
+      title: Text(
+        launchesModel.name,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 24,
         ),
       ),
-      subtitle: const Text('18 Sep 24 - 17:20'),
-      trailing: const Text(
-        'Falcon',
-        style: TextStyle(
-          fontSize: 20,
-        ),
-      ),
+      subtitle:
+          Text(DateFormat('dd-M-yyyy').format(launchesModel.date as DateTime)),
       children: tileChildren,
     );
   }
@@ -37,16 +35,25 @@ class PastItem extends StatelessWidget {
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Rocket: Falcon Heavy',
-            style: TextStyle(
+          Text(
+            maxLines: 2,
+            'Name: ${launchesModel.name}',
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
               fontSize: 18,
             ),
           ),
           const SizedBox(height: 8),
-          const Text(
-            'Payload: 5fe3b86eb3467846b324217c',
-            style: TextStyle(
+          Text(
+            'Rocket: ${launchesModel.rocket}',
+            style: const TextStyle(
+              fontSize: 18,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            'Flight Number: ${launchesModel.flightNum ?? 100}',
+            style: const TextStyle(
               fontSize: 18,
             ),
           ),
