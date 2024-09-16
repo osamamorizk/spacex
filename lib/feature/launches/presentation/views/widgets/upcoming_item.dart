@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:spacex/core/functions/url_luncher.dart';
 import 'package:spacex/core/helpers/consts.dart';
 import 'package:spacex/feature/launches/data/models/launches_model.dart';
 
@@ -37,11 +38,11 @@ class UpcomingItem extends StatelessWidget {
       //     fontSize: 20,
       //   ),
       // ),
-      children: tileChildren,
+      children: tileChildren(context),
     );
   }
 
-  List<Widget> get tileChildren {
+  List<Widget> tileChildren(context) {
     return [
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,10 +75,12 @@ class UpcomingItem extends StatelessWidget {
               style: const ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll<Color>(Colors.yellow),
               ),
-              onPressed: () {},
+              onPressed: () async {
+                await customUrlLauncher(url: launchesModel.webcastUrl);
+              },
               child: const Text(
-                'Webcast',
-                style: TextStyle(color: Colors.black),
+                'Video',
+                style: TextStyle(color: Colors.black, fontSize: 18),
               ),
             ),
           ),

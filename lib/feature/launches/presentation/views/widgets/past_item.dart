@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:spacex/core/functions/url_luncher.dart';
 import 'package:spacex/core/helpers/consts.dart';
 import 'package:spacex/feature/launches/data/models/launches_model.dart';
 
@@ -13,9 +14,12 @@ class PastItem extends StatelessWidget {
       tilePadding: const EdgeInsets.symmetric(vertical: 8),
       childrenPadding: const EdgeInsets.all(8),
       backgroundColor: kPrimaryColor,
-      leading: Image(
-        image: NetworkImage(launchesModel.image ??
-            'https://images2.imgbox.com/a9/9a/NXVkTZCE_o.png'),
+      leading: SizedBox(
+        width: 60,
+        child: Image(
+          image: NetworkImage(launchesModel.image ??
+              'https://images2.imgbox.com/a9/9a/NXVkTZCE_o.png'),
+        ),
       ),
       title: Text(
         launchesModel.name,
@@ -26,11 +30,11 @@ class PastItem extends StatelessWidget {
       ),
       subtitle:
           Text(DateFormat('dd-M-yyyy').format(launchesModel.date as DateTime)),
-      children: tileChildren,
+      children: tileChildren(),
     );
   }
 
-  List<Widget> get tileChildren {
+  List<Widget> tileChildren() {
     return [
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,10 +67,12 @@ class PastItem extends StatelessWidget {
               style: const ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll<Color>(Colors.yellow),
               ),
-              onPressed: () {},
+              onPressed: () async {
+                await customUrlLauncher(url: launchesModel.webcastUrl);
+              },
               child: const Text(
-                'Webcast',
-                style: TextStyle(color: Colors.black),
+                'Video',
+                style: TextStyle(color: Colors.black, fontSize: 18),
               ),
             ),
           ),
