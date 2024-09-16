@@ -26,7 +26,7 @@ List<BottomNavigationBarItem> navBarItems = const [
   ),
   BottomNavigationBarItem(
     icon: Icon(Icons.apartment),
-    label: 'Company Info',
+    label: 'Company',
     backgroundColor: kPrimaryColor,
   ),
 ];

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:spacex/core/functions/url_luncher.dart';
@@ -16,9 +17,11 @@ class PastItem extends StatelessWidget {
       backgroundColor: kPrimaryColor,
       leading: SizedBox(
         width: 60,
-        child: Image(
-          image: NetworkImage(launchesModel.image ??
-              'https://images2.imgbox.com/a9/9a/NXVkTZCE_o.png'),
+        child: CachedNetworkImage(
+          fit: BoxFit.fill,
+          imageUrl: launchesModel.image ??
+              'https://images2.imgbox.com/a9/9a/NXVkTZCE_o.png',
+          errorWidget: (context, url, error) => const Icon(Icons.error),
         ),
       ),
       title: Text(
