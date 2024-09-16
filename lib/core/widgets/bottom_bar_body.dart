@@ -14,15 +14,15 @@ class _BottomBarBodyState extends State<BottomBarBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-          unselectedIconTheme: const IconThemeData(size: 28),
-          elevation: 100,
-          iconSize: 32,
+          unselectedIconTheme: const IconThemeData(size: 25),
+          // elevation: 100,
+          iconSize: 29,
           selectedFontSize: 16,
-          unselectedFontSize: 15,
-          type: BottomNavigationBarType.shifting,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.black,
-          backgroundColor: kPrimaryColor.withOpacity(.5),
+          unselectedFontSize: 14,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: Colors.yellow,
+          unselectedItemColor: Colors.white,
+          backgroundColor: kPrimaryColor,
           currentIndex: currentIndex,
           onTap: (newIndex) {
             setState(() {

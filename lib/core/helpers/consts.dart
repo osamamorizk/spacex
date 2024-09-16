@@ -4,30 +4,30 @@ import 'package:spacex/feature/crews/presentation/views/crew.dart';
 import 'package:spacex/feature/launches/presentation/views/launches_view.dart';
 import 'package:spacex/feature/vehichels/presentation/views/vichels.dart';
 
-const kPrimaryColor = Color(0xffA9A9A9);
+const kPrimaryColor = Color(0xff312819);
 
 bool onboard = false;
 
-List<BottomNavigationBarItem> navBarItems = [
+List<BottomNavigationBarItem> navBarItems = const [
   BottomNavigationBarItem(
-    icon: const Icon(Icons.rocket_launch_outlined),
+    icon: Icon(Icons.calendar_month_sharp),
     label: 'Lunches',
-    backgroundColor: kPrimaryColor.withOpacity(.5),
+    backgroundColor: kPrimaryColor,
   ),
   BottomNavigationBarItem(
-    icon: Icon(Icons.directions_boat_filled_sharp),
+    icon: Icon(Icons.rocket_launch_outlined),
     label: 'Assets',
-    backgroundColor: kPrimaryColor.withOpacity(.5),
+    backgroundColor: kPrimaryColor,
   ),
   BottomNavigationBarItem(
     icon: Icon(Icons.people),
     label: 'Crews',
-    backgroundColor: kPrimaryColor.withOpacity(.5),
+    backgroundColor: kPrimaryColor,
   ),
   BottomNavigationBarItem(
     icon: Icon(Icons.apartment),
     label: 'Company Info',
-    backgroundColor: kPrimaryColor.withOpacity(.5),
+    backgroundColor: kPrimaryColor,
   ),
 ];
 

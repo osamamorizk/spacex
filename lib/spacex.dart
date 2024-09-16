@@ -9,10 +9,9 @@ class Spacex extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: AppRouter.router,
-      theme: ThemeData.dark()
-          .copyWith(scaffoldBackgroundColor: const Color(0xff161616)),
+      theme: ThemeData.dark().copyWith(
+          // scaffoldBackgroundColor: const Color(0xff161616),
+          ),
     );
   }
 }
-
-//Color(0xff161616)
