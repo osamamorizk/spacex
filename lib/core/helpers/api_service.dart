@@ -10,7 +10,7 @@ class ApiService {
   }
   final String baseUrl = 'https://api.spacexdata.com/v4/';
 
-  Future<List> get({required String endPoints}) async {
+  Future get({required String endPoints}) async {
     Response response = await _dio.get(endPoints);
 
     return response.data;

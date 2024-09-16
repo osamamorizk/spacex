@@ -35,7 +35,7 @@ class LaunchesReposImpl implements LaunchesRepos {
     try {
       var data = await apiService.get(endPoints: 'launches/past');
       List<LaunchesModel> launchesList = [];
-      for (var launch in data) {
+      for (var launch in data as List) {
         launchesList.add(LaunchesModel.fromJson(launch));
       }
 
