@@ -8,7 +8,7 @@ class PastLaunchCubit extends Cubit<PastLaunchState> {
 
   final LaunchesRepos launchesRepos;
 
-  Future<void> featchUpcomingLaunches() async {
+  Future<void> featchPastLaunches() async {
     emit(PastLaunchLaoding());
     var result = await launchesRepos.featchPast();
     result.fold(

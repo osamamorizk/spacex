@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:spacex/core/helpers/consts.dart';
 import 'package:spacex/feature/launches/data/models/launches_model.dart';
 
@@ -12,8 +13,14 @@ class UpcomingItem extends StatelessWidget {
       tilePadding: const EdgeInsets.symmetric(vertical: 8),
       childrenPadding: const EdgeInsets.all(8),
       backgroundColor: kPrimaryColor,
-      leading: Image(
-        image: AssetImage(launchesModel.image),
+      leading: SizedBox(
+        width: 55,
+        child: Image(
+          image: NetworkImage(
+            launchesModel.image ??
+                'https://images2.imgbox.com/a9/9a/NXVkTZCE_o.png',
+          ),
+        ),
       ),
       title: Text(
         launchesModel.name,
@@ -22,13 +29,14 @@ class UpcomingItem extends StatelessWidget {
           fontSize: 24,
         ),
       ),
-      subtitle: Text(launchesModel.date),
-      trailing: const Text(
-        'Falcon',
-        style: TextStyle(
-          fontSize: 20,
-        ),
-      ),
+      subtitle:
+          Text(DateFormat('dd-M-yyyy').format(launchesModel.date as DateTime)),
+      // trailing: const Text(
+      //   'Falcon',
+      //   style: TextStyle(
+      //     fontSize: 20,
+      //   ),
+      // ),
       children: tileChildren,
     );
   }
@@ -39,6 +47,15 @@ class UpcomingItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
+            maxLines: 2,
+            'Name: ${launchesModel.name}',
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+              fontSize: 18,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
             'Rocket: ${launchesModel.rocket}',
             style: const TextStyle(
               fontSize: 18,
@@ -46,7 +63,7 @@ class UpcomingItem extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            'Payload: ${launchesModel.payloads}',
+            'Flight Number: ${launchesModel.flightNum ?? 100}',
             style: const TextStyle(
               fontSize: 18,
             ),

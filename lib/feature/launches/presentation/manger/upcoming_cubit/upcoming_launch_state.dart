@@ -8,7 +8,7 @@ final class UpcomingLaunchInitial extends UpcomingLaunchState {}
 final class UpcomingLaunchLaoding extends UpcomingLaunchState {}
 
 final class UpcomingLaunchSuccess extends UpcomingLaunchState {
-  final List launches;
+  final List<LaunchesModel> launches;
 
   UpcomingLaunchSuccess({required this.launches});
 }

@@ -1,8 +1,7 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:spacex/core/helpers/api_service.dart';
 import 'package:spacex/core/helpers/consts.dart';
+import 'package:spacex/core/helpers/service_locator.dart';
 import 'package:spacex/feature/launches/Lunches_consts.dart';
 import 'package:spacex/feature/launches/data/repos/launches_repos_implementation.dart';
 import 'package:spacex/feature/launches/presentation/manger/past_launch_cubit/past_launch_cubit.dart';
@@ -16,23 +15,13 @@ class LaunchesView extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => UpcomingLaunchCubit(
-            LaunchesReposImpl(
-              ApiService(
-                Dio(),
-              ),
-            ),
-          ),
-        ),
+            create: (context) => UpcomingLaunchCubit(
+                  getIt.get<LaunchesReposImpl>(),
+                )..featchUpcomingLaunches()),
         BlocProvider(
-          create: (context) => PastLaunchCubit(
-            LaunchesReposImpl(
-              ApiService(
-                Dio(),
-              ),
-            ),
-          ),
-        ),
+            create: (context) => PastLaunchCubit(
+                  getIt.get<LaunchesReposImpl>(),
+                )..featchPastLaunches()),
       ],
       child: DefaultTabController(
         initialIndex: 0,

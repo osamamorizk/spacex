@@ -1,14 +1,14 @@
 class LaunchesModel {
   final String name;
-  final String date;
+  final DateTime? date;
   final String rocket;
   final String? webcastUrl;
-  final String payloads;
-  final String image;
+  final int? flightNum;
+  final String? image;
 
   LaunchesModel({
     required this.image,
-    required this.payloads,
+    required this.flightNum,
     required this.name,
     required this.date,
     required this.rocket,
@@ -18,11 +18,11 @@ class LaunchesModel {
   factory LaunchesModel.fromJson(json) {
     return LaunchesModel(
       name: json['name'],
-      date: json['date_utc'],
+      date: DateTime.tryParse(json['date_utc']),
       image: json['links']['patch']['small'],
       rocket: json['rocket'],
       webcastUrl: json['links']['webcast'],
-      payloads: json['payloads'][0],
+      flightNum: json['flight_number'],
     );
   }
 }
