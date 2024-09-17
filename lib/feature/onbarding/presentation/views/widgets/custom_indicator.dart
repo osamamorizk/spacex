@@ -13,7 +13,7 @@ class CuatomIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SmoothPageIndicator(
-      effect: const ExpandingDotsEffect(activeDotColor: Colors.blue),
+      effect: const ExpandingDotsEffect(activeDotColor: Colors.yellow),
       axisDirection: Axis.horizontal,
       controller: pageController,
       count: onboardList.length,

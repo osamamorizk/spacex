@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spacex/core/helpers/consts.dart';
 import 'package:spacex/feature/onbarding/presentation/views/widgets/onboarding_body.dart';
 
 class OnboardingView extends StatelessWidget {
@@ -7,7 +8,7 @@ class OnboardingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor:kPrimaryColor ,
       body: OnboardingBody(),
     );
   }

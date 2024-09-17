@@ -6,6 +6,6 @@ List<OnboardingModel> onboardList = [
       text:
           'SpaceX is about applying the potential of space to solve Earth’s challenges'),
   OnboardingModel(
-      image: 'assets/images/onboard.jpg',
+      image: 'assets/images/onboard.png',
       text: 'The future of space travel begins with the power of innovation.'),
 ];

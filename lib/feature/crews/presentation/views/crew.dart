@@ -22,7 +22,7 @@ class Crew extends StatelessWidget {
           backgroundColor: kPrimaryColor,
           title: const Text(
             'Astronauts',
-            style: TextStyle(fontSize: 30, color: Colors.yellow),
+            style: TextStyle(fontSize: 24, color: Colors.yellow),
           ),
         ),
         body: const CrewBody(),

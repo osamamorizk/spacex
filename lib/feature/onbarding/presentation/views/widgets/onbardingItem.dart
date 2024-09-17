@@ -16,7 +16,8 @@ class OnboardingItem extends StatelessWidget {
       children: [
         const Text(
           'SpaceX Info',
-          style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+          style: TextStyle(
+              fontSize: 35, fontWeight: FontWeight.bold, color: Colors.yellow),
         ),
         const SizedBox(
           height: 30,

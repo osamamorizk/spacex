@@ -21,7 +21,7 @@ class CustomActionButton extends StatelessWidget {
       width: 65,
       child: FloatingActionButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.yellow,
         onPressed: () async {
           if (isLast) {
             await CasheHelper.savedDate(key: 'onboarding', value: true);
