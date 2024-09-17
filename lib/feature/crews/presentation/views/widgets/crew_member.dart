@@ -3,12 +3,15 @@ import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:spacex/core/helpers/consts.dart';
 import 'package:spacex/feature/company/presentation/views/widgets/custom_button.dart';
 import 'package:spacex/feature/company/presentation/views/widgets/info.dart';
+import 'package:spacex/feature/crews/data/models/crew_model.dart';
 
 class CrewMember extends StatelessWidget {
   const CrewMember({
     super.key,
+    required this.crewModel,
   });
 
+  final CrewModel crewModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,36 +26,36 @@ class CrewMember extends StatelessWidget {
                 height: 200,
                 width: MediaQuery.of(context).size.width,
                 fit: BoxFit.fill,
-                image: const NetworkImage('https://imgur.com/0smMgMH.png')),
+                image: NetworkImage(crewModel.image)),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               children: [
                 Info(
                   title: 'Name',
-                  infoTitle: "Robert Behnken",
+                  infoTitle: crewModel.name,
                   fontsize: 15,
                 ),
                 Info(
                   title: 'Agency',
-                  infoTitle: "NASA",
+                  infoTitle: crewModel.agency,
                   fontsize: 15,
                 ),
                 Info(
                   title: 'Status',
-                  infoTitle: "Active",
+                  infoTitle: crewModel.status,
                   fontsize: 15,
                 ),
               ],
             ),
           ),
-          const SizedBox(
+          SizedBox(
             width: 160,
             height: 40,
             child: CustomButton(
                 title: 'Wikipedia',
-                ulr: 'https://en.wikipedia.org/wiki/Robert_L._Behnken',
+                ulr: crewModel.wikipedia,
                 iconData: FontAwesomeIcons.wikipediaW),
           ),
           const SizedBox(
@@ -63,4 +66,3 @@ class CrewMember extends StatelessWidget {
     );
   }
 }
-//
