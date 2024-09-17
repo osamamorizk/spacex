@@ -4,6 +4,7 @@ import 'package:spacex/core/errors/failure.dart';
 import 'package:spacex/core/helpers/api_service.dart';
 import 'package:spacex/feature/vehichels/data/models/dragon_model.dart';
 import 'package:spacex/feature/vehichels/data/models/rocket_model.dart';
+import 'package:spacex/feature/vehichels/data/models/ship_model.dart';
 import 'package:spacex/feature/vehichels/data/repos/vehichel_repo.dart';
 
 class VehichelRepoImplem implements VehichelRepo {
@@ -39,6 +40,25 @@ class VehichelRepoImplem implements VehichelRepo {
         dragonList.add(DragonModel.fromJson(dragon));
       }
       return right(dragonList);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } else {
+        return left(ServerFailure(errorMessage: e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<ShipModel>>> featchShips() async {
+    try {
+      var result = await apiService.get(endPoints: 'ships');
+
+      List<ShipModel> shipList = [];
+      for (var ship in result) {
+        shipList.add(ShipModel.fromJson(ship));
+      }
+      return right(shipList);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));

@@ -1,11 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:spacex/core/helpers/consts.dart';
-import 'package:spacex/feature/vehichels/presentation/views/widgets/details_button.dart';
+import 'package:spacex/feature/vehichels/data/models/ship_model.dart';
+import 'package:spacex/feature/vehichels/presentation/views/widgets/ships_details.dart';
 
 class ShipsItem extends StatelessWidget {
-  const ShipsItem({super.key});
-
+  const ShipsItem({super.key, required this.shipModel});
+  final ShipModel shipModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,20 +20,16 @@ class ShipsItem extends StatelessWidget {
             ClipRRect(
               borderRadius: const BorderRadius.all(Radius.circular(16)),
               child: CachedNetworkImage(
+                  errorWidget: (context, url, error) =>
+                      const Icon(size: 50, Icons.error),
                   height: 200,
                   width: MediaQuery.of(context).size.width,
                   fit: BoxFit.fill,
-                  imageUrl: 'https://imgur.com/DaCfMsj.jpg'),
+                  imageUrl: shipModel.image ??
+                      'https://images.marinetraffic.com/collection/4230203.webp'),
             ),
+            ShipsDetails(shipModel: shipModel),
             const SizedBox(height: 10),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                style: TextStyle(fontSize: 20),
-                'The Falcon 1 was an expendable launch system privately developed and manufactured by SpaceX during 2006-2009. On 28 September 2008, Falcon 1 became the first privately-developed liquid-fuel launch vehicle to go into orbit around the Earth.',
-              ),
-            ),
-            const DetailsButton()
           ],
         ),
       ),

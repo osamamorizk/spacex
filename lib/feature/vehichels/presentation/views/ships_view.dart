@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:spacex/feature/vehichels/presentation/views/widgets/ships_item.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:spacex/core/helpers/api_service.dart';
+import 'package:spacex/core/helpers/service_locator.dart';
+import 'package:spacex/feature/vehichels/data/repos/vehichel_repo_implem.dart';
+import 'package:spacex/feature/vehichels/presentation/manger/ship/ship_cubit.dart';
+import 'package:spacex/feature/vehichels/presentation/views/widgets/ship_view_body.dart';
 
 class ShipsView extends StatelessWidget {
   const ShipsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16, top: 8),
-      child: ListView.builder(
-        itemCount: 5,
-        itemBuilder: (context, index) {
-          return ShipsItem();
-        },
-      ),
+    return BlocProvider(
+      create: (context) =>
+          ShipCubit(VehichelRepoImplem(getIt.get<ApiService>()))..featchShips(),
+      child: ShipViewBody(),
     );
   }
 }
