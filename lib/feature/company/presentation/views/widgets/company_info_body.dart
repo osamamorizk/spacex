@@ -5,7 +5,6 @@ import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:spacex/feature/company/presentation/manger/company_info/company_info_cubit.dart';
 import 'package:spacex/feature/company/presentation/views/widgets/custom_button.dart';
 import 'package:spacex/feature/company/presentation/views/widgets/info.dart';
-import 'package:spacex/feature/launches/presentation/manger/upcoming_cubit/upcoming_launch_cubit.dart';
 
 class CompanyInfoBody extends StatelessWidget {
   const CompanyInfoBody({super.key});

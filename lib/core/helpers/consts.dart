@@ -21,7 +21,7 @@ List<BottomNavigationBarItem> navBarItems = const [
   ),
   BottomNavigationBarItem(
     icon: Icon(Icons.people),
-    label: 'Crews',
+    label: 'Crew',
     backgroundColor: kPrimaryColor,
   ),
   BottomNavigationBarItem(

@@ -5,23 +5,26 @@ class Info extends StatelessWidget {
     super.key,
     required this.title,
     required this.infoTitle,
+    this.fontsize,
   });
   final String title;
   final String infoTitle;
+
+  final double? fontsize;
   @override
   Widget build(BuildContext context) {
     return ListTile(
       contentPadding: const EdgeInsets.all(0),
       leading: Text(
         title,
-        style: const TextStyle(
-          fontSize: 18,
+        style: TextStyle(
+          fontSize: fontsize ?? 18,
         ),
       ),
       trailing: Text(
         infoTitle,
-        style: const TextStyle(
-          fontSize: 18,
+        style: TextStyle(
+          fontSize: fontsize ?? 18,
         ),
       ),
     );

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:go_router/go_router.dart';
 import 'package:spacex/core/helpers/cashe_helper.dart';
-import 'package:spacex/core/helpers/consts.dart';
 import 'package:spacex/core/routing/routes.dart';
 
 class CustomActionButton extends StatelessWidget {
@@ -22,7 +21,7 @@ class CustomActionButton extends StatelessWidget {
       width: 65,
       child: FloatingActionButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-        backgroundColor: kPrimaryColor,
+        backgroundColor: Colors.blue,
         onPressed: () async {
           if (isLast) {
             await CasheHelper.savedDate(key: 'onboarding', value: true);

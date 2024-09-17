@@ -14,7 +14,6 @@ class OnboardingItem extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        // const Image(image: AssetImage('assets/images/spacex.png')),
         const Text(
           'SpaceX Info',
           style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
