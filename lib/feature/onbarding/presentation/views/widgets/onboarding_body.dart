@@ -40,13 +40,16 @@ class _OnboardingBodyState extends State<OnboardingBody> {
                       onboardingModel: onboardList[index],
                     )),
           ),
-          CuatomIndicator(pageController: pageController),
+          Row(
+            children: [
+              CuatomIndicator(pageController: pageController),
+              const Spacer(),
+              CustomActionButton(
+                  isLast: isLast, pageController: pageController),
+            ],
+          ),
           const SizedBox(
             height: 40,
-          ),
-          CustomActionButton(isLast: isLast, pageController: pageController),
-          const SizedBox(
-            height: 30,
           ),
         ],
       ),

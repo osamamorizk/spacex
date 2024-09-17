@@ -1,8 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:spacex/core/helpers/consts.dart';
-import 'package:spacex/feature/company/presentation/views/widgets/custom_button.dart';
-import 'package:spacex/feature/company/presentation/views/widgets/info.dart';
+import 'package:spacex/core/widgets/custom_button.dart';
+import 'package:spacex/core/widgets/info.dart';
 import 'package:spacex/feature/crews/data/models/crew_model.dart';
 
 class CrewMember extends StatelessWidget {
@@ -22,14 +23,14 @@ class CrewMember extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: const BorderRadius.all(Radius.circular(16)),
-            child: Image(
+            child: CachedNetworkImage(
                 height: 200,
                 width: MediaQuery.of(context).size.width,
                 fit: BoxFit.fill,
-                image: NetworkImage(crewModel.image)),
+                imageUrl: crewModel.image),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               children: [
                 Info(

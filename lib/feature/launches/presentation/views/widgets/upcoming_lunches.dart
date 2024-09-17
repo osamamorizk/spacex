@@ -27,7 +27,10 @@ class UpcomingLaunches extends StatelessWidget {
         } else if (state is UpcomingLaunchFailure) {
           return Center(child: Text(state.errorMessage));
         } else {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+              child: CircularProgressIndicator(
+            color: Colors.yellow,
+          ));
         }
       },
     );

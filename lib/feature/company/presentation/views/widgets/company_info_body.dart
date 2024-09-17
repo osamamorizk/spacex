@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:spacex/feature/company/presentation/manger/company_info/company_info_cubit.dart';
-import 'package:spacex/feature/company/presentation/views/widgets/custom_button.dart';
-import 'package:spacex/feature/company/presentation/views/widgets/info.dart';
+import 'package:spacex/core/widgets/custom_button.dart';
+import 'package:spacex/core/widgets/info.dart';
 
 class CompanyInfoBody extends StatelessWidget {
   const CompanyInfoBody({super.key});
