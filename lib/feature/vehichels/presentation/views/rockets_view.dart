@@ -15,7 +15,7 @@ class RocketsView extends StatelessWidget {
       create: (context) => RocketCubit(
         VehichelRepoImplem(getIt.get<ApiService>()),
       )..fetchRocketInfo(),
-      child: RocketViewBody(),
+      child: const RocketViewBody(),
     );
   }
 }

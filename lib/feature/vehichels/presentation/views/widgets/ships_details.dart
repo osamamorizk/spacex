@@ -35,7 +35,7 @@ class ShipsDetails extends StatelessWidget {
             ),
             SizedBox(
               width: 180,
-              height: 40,
+              height: 35,
               child: CustomButton(
                 title: 'More INfo',
                 ulr: shipModel.link ?? '',

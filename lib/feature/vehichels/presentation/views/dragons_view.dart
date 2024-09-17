@@ -15,7 +15,7 @@ class DragonsView extends StatelessWidget {
       create: (context) =>
           DragonCubit(VehichelRepoImplem(getIt.get<ApiService>()))
             ..featchDragons(),
-      child: DragonViewBody(),
+      child: const DragonViewBody(),
     );
   }
 }

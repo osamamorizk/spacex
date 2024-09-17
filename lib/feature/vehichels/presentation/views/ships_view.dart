@@ -14,7 +14,7 @@ class ShipsView extends StatelessWidget {
     return BlocProvider(
       create: (context) =>
           ShipCubit(VehichelRepoImplem(getIt.get<ApiService>()))..featchShips(),
-      child: ShipViewBody(),
+      child: const ShipViewBody(),
     );
   }
 }
