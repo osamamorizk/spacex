@@ -3,4 +3,5 @@ class Routes {
   static const kBottomBar = '/bottomBar';
 
   static const kRocketDetails = '/rocketDetails';
+  static const kDragonDetils = '/dragonDetails';
 }

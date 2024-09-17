@@ -1,11 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:spacex/core/helpers/consts.dart';
+import 'package:spacex/core/routing/routes.dart';
+import 'package:spacex/feature/vehichels/data/models/dragon_model.dart';
 import 'package:spacex/feature/vehichels/presentation/views/widgets/details_button.dart';
 
 class DragonItem extends StatelessWidget {
-  const DragonItem({super.key});
-
+  const DragonItem({super.key, required this.dragonModel});
+  final DragonModel dragonModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,17 +25,22 @@ class DragonItem extends StatelessWidget {
                   height: 200,
                   width: MediaQuery.of(context).size.width,
                   fit: BoxFit.fill,
-                  imageUrl: 'https://imgur.com/DaCfMsj.jpg'),
+                  imageUrl: dragonModel.image),
             ),
             const SizedBox(height: 10),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
-                style: TextStyle(fontSize: 20),
-                'The Falcon 1 was an expendable launch system privately developed and manufactured by SpaceX during 2006-2009. On 28 September 2008, Falcon 1 became the first privately-developed liquid-fuel launch vehicle to go into orbit around the Earth.',
+                style: const TextStyle(fontSize: 20),
+                dragonModel.description,
               ),
             ),
-            const DetailsButton()
+            DetailsButton(
+              onPressed: () {
+                GoRouter.of(context)
+                    .push(Routes.kDragonDetils, extra: dragonModel);
+              },
+            )
           ],
         ),
       ),
